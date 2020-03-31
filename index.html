@@ -21,25 +21,27 @@
     <div class="container">
         <img src="logo.svg" alt="logo">
         <div class="header">
+            <div class="name" position="relative" >Income</div>
             <label for="income">Annual Income</label>
             <input type="number" min="0" id="income" name="income"
-                onchange="data.annualIncome = value; updateExpendaturePieChart();"><br>
+                onchange="data.annualIncome = value; updateExpenditurePieChart();"><br>
 
-            <label for="housing">Housing (Monthly)</label>
+            <div class="name" position="relative" >Common Expenses (Monthly)</div>
+            <label for="housing">Housing</label>
             <input type="number" min="0" id="housing" name="housing" onchange="data.housing = value;
-                updateExpendaturePieChart();"><br>
+                updateExpenditurePieChart();"><br>
 
-            <label for="education">Education (Monthly)</label>
+            <label for="education">Education</label>
             <input type="number" min="0" id="education" name="education" onchange="data.education = value;
-                updateExpendaturePieChart();"><br>
+                updateExpenditurePieChart();"><br>
 
-            <label for="transportation">Transportation (Monthly)</label>
+            <label for="transportation">Transportation</label>
             <input type="number" min="0" id="transportation" name="transportation" onchange="data.transportation = value;
-                updateExpendaturePieChart();"><br>
+                updateExpenditurePieChart();"><br>
 
-            <label for="food">Food (Monthly)</label>
+            <label for="food">Food</label>
             <input type="number" min="0" id="food" name="food"
-                onchange="data.food = value; updateExpendaturePieChart();"><br>
+                onchange="data.food = value; updateExpenditurePieChart();"><br>
 
             <div class="name" position="relative" >Non-recurring Expenses</div>
             <label for="nonrecurringName">Name</label>
@@ -63,7 +65,7 @@
                 <button class="button1" target="_blank" rel="nofollow noopener">Save</a>
             </div>
             <div class="wrapper">
-                <canvas class="expendatureChart" id="expendatureChart" width="650px"></canvas>
+                <canvas class="expenditureChart" id="expenditureChart" width="650px"></canvas>
             </div>
             <div class="wrapper2">
                 <canvas class="expenseChart" id="expenseChart" width="650px"></canvas>

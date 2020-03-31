@@ -1,5 +1,5 @@
 let data;
-let expendatureChart;
+let expenditureChart;
 let expenseChart;
 let goalChart;
 
@@ -34,11 +34,11 @@ $(document).ready(() => {
   goalAllocation = document.getElementById('goalAllocation');
 
   const textColor = '#d3d3d3';
-  expendatureChart = new Chart(document.getElementById('expendatureChart').getContext('2d'), {
+  expenditureChart = new Chart(document.getElementById('expenditureChart').getContext('2d'), {
     type: 'pie',
     options: {
       title: {
-        text: 'Expendature',
+        text: 'Non-recurring Expenses',
         fontColor: textColor,
         display: true,
       },
@@ -51,7 +51,7 @@ $(document).ready(() => {
     type: 'pie',
     options: {
       title: {
-        text: 'Non-recurring Expenses',
+        text: 'Monthly Expenditure',
         fontColor: textColor,
         display: true,
       },
@@ -63,7 +63,7 @@ $(document).ready(() => {
     type: 'pie',
     options: {
       title: {
-        text: 'Goals',
+        text: 'Monthly Goal Allocation',
         fontColor: textColor,
         display: true,
       },
@@ -75,7 +75,7 @@ $(document).ready(() => {
   Chart.defaults.fontFamily = '\'Montserrat\', Arial, Helvetica, sans-serif';
   Chart.defaults.fontColor = textColor;
 
-  updateExpendaturePieChart();
+  updateExpenditurePieChart();
   updateExpensePieChart();
   updateGoalChart();
 });
@@ -103,7 +103,7 @@ function resetData(updateCharts) {
   setElementValues();
 
   if (updateCharts) {
-    updateExpendaturePieChart();
+    updateExpenditurePieChart();
     updateExpensePieChart();
     updateGoalChart();
   }
@@ -138,7 +138,7 @@ function addExpense() {
 
   nonrecurringName.value = '';
   nonrecurringValue.value = '';
-  updateExpendaturePieChart();
+  updateExpenditurePieChart();
   updateExpensePieChart();
 }
 
@@ -163,7 +163,7 @@ function addGoal() {
   goalValue.value = '';
   goalSavings.value = '';
   goalAllocation.value = '';
-  updateExpendaturePieChart();
+  updateExpenditurePieChart();
   updateGoalChart();
 }
 
@@ -212,10 +212,10 @@ function deleteExpense(button) {
 function deleteGoal(button) {
   data.goals = data.goals.filter(x => x.name !== button.getAttribute('goal'));
   button.parentElement.remove();
-  updateExpendaturePieChart();
+  updateExpenditurePieChart();
 }
 
-function updateExpendaturePieChart() {
+function updateExpenditurePieChart() {
   let values = [];
   let names = [];
 
@@ -270,7 +270,7 @@ function updateExpendaturePieChart() {
 }
 
 function updateExpensePieChart() {
-  expendatureChart.data = {
+  expenditureChart.data = {
     datasets: [{
       data: data.expenses.map(x => x.value),
       backgroundColor: getChartColors(data.expenses.length),
@@ -278,7 +278,7 @@ function updateExpensePieChart() {
 
     labels: data.expenses.map(x => x.name),
   };
-  expendatureChart.update();
+  expenditureChart.update();
 }
 
 function updateGoalChart() {
